@@ -33,7 +33,7 @@ cand_tally = dftal.groupby('Candidate').sum()
 cand_tally.reset_index(inplace = True, drop = False)
 cand_max = cand_tally.loc[cand_tally["counter_pct"] ==  cand_tally["counter_pct"].max(), ['Candidate']]
 cand_tally['counter_pct'] = cand_tally['counter_pct'].apply('{:.3f}%'.format)
-
+cand_tally['Counter'] = cand_tally['Counter'].apply('({:.0f})'.format)
 
 print('Election Results')
 print('')
